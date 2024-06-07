@@ -1,0 +1,171 @@
+\documentclass{beamer}
+
+\definecolor{sectioncolor}{RGB}{139,1,102} %dark magenta
+
+\usetheme{madrid}
+\usecolortheme{beaver}
+\usefonttheme{serif}
+\usepackage{tikz}
+\useinnertheme{rectangles}
+\useoutertheme{miniframes}
+%\setbeamercolor*{mini frame}{fg=black,bg=white}
+%\setbeamercolor{section in head/foot}{fg=red, bg=sectioncolor}
+
+% Define colors
+\definecolor{myblue}{RGB}{0, 102, 204}
+\definecolor{mygreen}{RGB}{0, 153, 0}
+
+\setbeamercolor{structure}{fg=myblue} % Color of text elements
+\setbeamercolor{alerted text}{fg=mygreen} % Color of alerted text (e.g., \alert{})
+\setbeamercolor{block title}{bg=myblue,fg=white} % Color of block titles
+\setbeamercolor{block body}{bg=gray!20} % Color of block body
+\setbeamercolor{itemize item}{fg=myblue} % Color of itemize bullets
+\setbeamercolor{itemize subitem}{fg=mygreen} % Color of sub-itemize bullets
+\setbeamercolor{enumerate item}{fg=myblue} % Color of enumerate bullets
+\setbeamercolor{enumerate subitem}{fg=mygreen} % Color of sub-enumerate bullets
+\setbeamercolor{title}{fg=myblue} % Color of title
+\setbeamercolor{author}{fg=gray} % Color of author
+\setbeamercolor{date}{fg=gray} % Color of date
+
+
+% Declare lengths
+
+\newlength{\leafnodewidth} 
+\newlength{\leafnodeheightone} 
+\newlength{\leafnodeheighttwo}
+
+\newlength{\leafnodetextstart}
+\newlength{\leafnodetextend}
+
+\newlength{\internalnoderadius}
+
+\newlength{\leveldistance}
+
+% Set length values
+
+\setlength{\leafnodewidth}{6mm}
+\setlength{\leafnodeheightone}{3mm}
+\setlength{\leafnodeheighttwo}{9mm} 
+
+\setlength{\leafnodetextstart}{11mm}
+\setlength{\leafnodetextend}{15mm}
+
+\setlength{\internalnoderadius}{3.5mm}
+
+\setlength{\leveldistance}{14mm}
+
+% Declare colors
+\definecolor{leafcolorone}{RGB}{255,0,0} % red
+\definecolor{leafcolortwo}{RGB}{0,0,255} % blue
+\definecolor{internalnodecolor}{RGB}{0,255,0} % green
+\definecolor{highlightededgecolor}{RGB}{139,1,102} %dark magenta
+
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	\insertframenumber/\inserttotalframenumber
+}
+
+% Define the \leafnode command
+\newcommand{\leafnode}[6]{
+	\begin{tikzpicture}
+		\filldraw[color=#1!90, fill=#1!3, thick, font=\tiny] (0,0) rectangle (\leafnodewidth, -\leafnodeheightone) node[midway, text=#3] {#4};
+		\filldraw[color=#2!90, fill=#2!3, thick, font=\small] (0,-\leafnodeheightone) rectangle (\leafnodewidth, -\leafnodeheighttwo) node[midway, text=#3] {#5};
+		
+		% the following portion is only for showing after demonstration
+		
+		%\filldraw[color=white!100, fill=white!100, thick, font=\scriptsize] (0,-\leafnodetextstart) rectangle (\leafnodewidth, -\leafnodetextend) node[midway, text=#3] {#6};
+		
+	\end{tikzpicture}
+}
+
+
+% Define the \leafnode command
+\newcommand{\labelledleafnode}[6]{
+	\begin{tikzpicture}
+		\filldraw[color=#1!90, fill=#1!3, thick, font=\tiny] (0,0) rectangle (\leafnodewidth, -\leafnodeheightone) node[midway, text=#3] {#4};
+		\filldraw[color=#2!90, fill=#2!3, thick, font=\small] (0,-\leafnodeheightone) rectangle (\leafnodewidth, -\leafnodeheighttwo) node[midway, text=#3] {#5};
+		
+		\filldraw[color=violet!100, fill=white!100, thick, font=\scriptsize] (0,-\leafnodetextstart) rectangle (\leafnodewidth, -\leafnodetextend) node[midway, text=#3] {#6};
+		
+	\end{tikzpicture}
+}
+
+% Define the \internalnode command with a color argument
+\newcommand{\internalnode}[3]{
+	\begin{tikzpicture}
+		\filldraw[color=#1!90, fill=#1!5, thick, font=\scriptsize] (0,0) circle (\internalnoderadius) node[midway, text=#2] {#3};
+	\end{tikzpicture}
+}
+
+
+% Minimum Indicator
+\newcommand{\mindicator}[0]{
+	
+	\vspace{0.5mm}
+	
+	\begin{tikzpicture}
+		
+		\draw[black, thick] (0,0.1) -- (0,0) -- (1.66,0) -- (1.66,0.1);
+		\draw[black, thick] (0.83,0) -- (0.83,-0.3);
+		\draw[black, thick, ->] (0.83,-0.3) -- (1.66,-0.3);
+		% Adding a dummy line for better positioning of the text
+		\draw[white] (0,-0.4) -- (1.66,-0.4);
+		
+	\end{tikzpicture}
+	\footnotesize{Minimum-weighted two nodes. Now these will be combined\ldots}
+	% \begin{tikzpicture}
+		% \node[draw=white, fill=white, rectangle, font=\footnotesize] at (0,0) {Minimum};
+		% \end{tikzpicture}
+	
+}
+
+
+\begin{document}
+	
+	
+	
+	
+	\tikzstyle{level 1} = [sibling distance=38mm]
+	\tikzstyle{level 2} = [sibling distance=30mm]
+	\tikzstyle{level 3} = [sibling distance=19mm]
+	\tikzstyle{visible_edge} = [->, draw, leafcolortwo, thick]
+	\tikzstyle{edge from parent} = [draw, teal, thick]
+	\tikzstyle{emph} = [edge from parent/.style={->,highlightededgecolor,draw,ultra thick}]
+	\tikzstyle{norm} = [edge from parent/.style={draw, teal, thin}]
+	\tikzstyle{noedge} = [edge from parent/.style={draw, white, thin}]
+	
+	\tikzstyle{every node} = [inner sep=0]
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\begin{frame}{Hello}
+		
+		\begin{block}{Hello}
+			World
+		\end{block}
+		
+		
+		\begin{alertblock}{Hello}
+			World
+		\end{alertblock}
+		
+	\end{frame}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

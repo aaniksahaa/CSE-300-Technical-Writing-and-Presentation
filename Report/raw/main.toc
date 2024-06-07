@@ -1,0 +1,8 @@
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Algorithm}{16}{0}{2}
+\beamer@sectionintoc {3}{Construction}{20}{0}{3}
+\beamer@sectionintoc {4}{Interpretation}{29}{0}{4}
+\beamer@sectionintoc {5}{Encoding}{36}{0}{5}
+\beamer@sectionintoc {6}{Decoding}{46}{0}{6}
+\beamer@sectionintoc {7}{Complexity}{58}{0}{7}
+\beamer@sectionintoc {8}{Conclusion}{59}{0}{8}

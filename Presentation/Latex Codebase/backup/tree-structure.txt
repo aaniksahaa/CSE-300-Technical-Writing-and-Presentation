@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{tikz}
+
+% Declare lengths
+\newlength{\leafnodewidth} 
+\newlength{\leafnodeheightone} 
+\newlength{\leafnodeheighttwo} 
+\newlength{\internalnoderadius}
+
+% Set length values
+\setlength{\leafnodewidth}{1.5cm}
+\setlength{\leafnodeheightone}{0.5cm}
+\setlength{\leafnodeheighttwo}{2cm}   %total
+\setlength{\internalnoderadius}{0.75cm}
+
+% Declare colors
+\definecolor{leafcolorone}{RGB}{255,0,0} % Red
+\definecolor{leafcolortwo}{RGB}{0,0,255} % Blue
+\definecolor{internalnodecolor}{RGB}{0,255,0} % Blue
+
+
+% Define the \leafnode command
+\newcommand{\leafnode}[4]{
+  \begin{tikzpicture}
+    \filldraw[color=#1!90, fill=#1!5, very thick, font=\large] (0,0) rectangle (\leafnodewidth, -\leafnodeheightone) node[midway] {#3};
+    \filldraw[color=#2!90, fill=#2!5, very thick, font=\huge] (0,-\leafnodeheightone) rectangle (\leafnodewidth, -\leafnodeheighttwo) node[midway, text=black] {#4};
+  \end{tikzpicture}
+}
+
+% Define the \internalnode command with a color argument
+\newcommand{\internalnode}[2]{
+  \begin{tikzpicture}
+    \filldraw[color=#1!90, fill=#1!5, very thick, font=\large] (0,0) circle (\internalnoderadius) node[midway, text=black] {#2};
+  \end{tikzpicture}
+}
+
+\begin{document}
+
+\leafnode{red}{blue}{0.17}{A}
+\internalnode{green}{0.35}
+
+\tikzstyle{level 1} = [sibling distance=65mm]
+\tikzstyle{level 2} = [sibling distance=40mm]
+\tikzstyle{level 3} = [sibling distance=35mm]
+\tikzstyle{visible_edge} = [->, draw, blue, thick]
+\tikzstyle{edge from parent} = [->, draw, blue, thick]
+\tikzstyle{emph} = [edge from parent/.style={->, orange,ultra thick,draw}]
+\tikzstyle{norm} = [edge from parent/.style={->, draw, blue, thick}]
+\tikzstyle{every node} = [inner sep=0]
+
+\newpage
+
+
+\begin{tikzpicture}[
+level distance=3cm
+]
+
+    \node {\internalnode{green}{1.0}}
+    child[emph]{
+        node {\internalnode{green}{0.48}}
+        child[emph]{
+            node {\internalnode{green}{0.31}}
+            child[norm]{
+                node {\leafnode{red}{blue}{0.15}{D}}
+            }
+            child[emph]{
+                node {\leafnode{red}{blue}{0.16}{E}}
+            }
+        }
+        child[norm]{
+            node {\leafnode{red}{blue}{0.17}{A}}
+        }
+    }
+    child{
+        node {\internalnode{green}{0.52}}
+        child{
+            node {\leafnode{red}{blue}{0.17}{C}}
+        }
+        child{
+            node {\leafnode{red}{blue}{0.35}{B}}
+        }
+    };
+      
+\end{tikzpicture}
+
+\newpage
+
+\begin{tikzpicture}
+
+\node {\leafnode{red}{blue}{1}{A}}
+child {node {\leafnode{red}{blue}{2}{B}}}
+child {node {\leafnode{red}{blue}{3}{C}}};
+    
+\end{tikzpicture}
+
+
+
+
+\end{document}

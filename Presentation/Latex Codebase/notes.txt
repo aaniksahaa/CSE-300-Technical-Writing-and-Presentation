@@ -1,0 +1,24 @@
+1. Slide Components-
+
+-	Introduction
+-	Algorithm history, when, who
+
+- 	Algorithm - formal description
+-	Flowchart
+
+-	Intuitive Proof
+-	Construction of Huffman Tree
+-	Finding the Encoding of a letter
+
+-	Encoding a String	
+-	Decoding a binary string
+-	Complexity
+
+-	Application
+
+2. To add
+
+-	Min heap
+-	Algorithm - Pseudocode
+-	Relative Occurrence Calculation
+-	

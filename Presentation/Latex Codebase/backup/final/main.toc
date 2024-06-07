@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Algorithm}{16}{0}{2}
+\beamer@sectionintoc {3}{Construction}{20}{0}{3}
+\beamer@sectionintoc {4}{Interpretation}{28}{0}{4}
+\beamer@sectionintoc {5}{Encoding}{35}{0}{5}
+\beamer@sectionintoc {6}{Decoding}{45}{0}{6}

@@ -1,0 +1,28 @@
+\contentsline {section}{\numberline {1}Introduction}{5}{}%
+\contentsline {section}{\numberline {2}Historical Background}{5}{}%
+\contentsline {section}{\numberline {3}Applications}{6}{}%
+\contentsline {section}{\numberline {4}The Problem Definition}{7}{}%
+\contentsline {section}{\numberline {5}A Naive Solution}{7}{}%
+\contentsline {section}{\numberline {6}Huffman's Algorithm}{8}{}%
+\contentsline {subsection}{\numberline {6.1}The Idea}{8}{}%
+\contentsline {subsection}{\numberline {6.2}Steps}{8}{}%
+\contentsline {subsection}{\numberline {6.3}Pseudocode}{8}{}%
+\contentsline {subsection}{\numberline {6.4}Properties}{9}{}%
+\contentsline {subsection}{\numberline {6.5}The Intuition}{9}{}%
+\contentsline {section}{\numberline {7}The Huffman Tree}{9}{}%
+\contentsline {subsection}{\numberline {7.1}Properties}{9}{}%
+\contentsline {subsection}{\numberline {7.2}Construction of Huffman Tree}{10}{}%
+\contentsline {subsection}{\numberline {7.3}Interpretation of Huffman Tree}{13}{}%
+\contentsline {subsection}{\numberline {7.4}Comparison}{13}{}%
+\contentsline {section}{\numberline {8}Encoding}{14}{}%
+\contentsline {subsection}{\numberline {8.1}An Example}{14}{}%
+\contentsline {subsection}{\numberline {8.2}Efficiency of Encoding}{14}{}%
+\contentsline {section}{\numberline {9}Decoding}{16}{}%
+\contentsline {subsection}{\numberline {9.1}An Example}{16}{}%
+\contentsline {section}{\numberline {10}Time Complexity Analysis}{18}{}%
+\contentsline {subsection}{\numberline {10.1}Building Frequency Table}{18}{}%
+\contentsline {subsection}{\numberline {10.2}Building The Huffman Tree}{18}{}%
+\contentsline {subsection}{\numberline {10.3}Generating Huffman Codes}{18}{}%
+\contentsline {subsection}{\numberline {10.4}Encoding a Message}{18}{}%
+\contentsline {subsection}{\numberline {10.5}Decoding a Message}{18}{}%
+\contentsline {section}{\numberline {11}Conclusion}{19}{}%
